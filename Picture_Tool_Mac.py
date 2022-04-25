@@ -3,7 +3,6 @@ import glob
 from tkinter import filedialog
 import tkinter as tk
 import tkmacosx
-from turtle import bgcolor, color
 from PIL import ImageTk, Image
 import numpy as np
 import csv
