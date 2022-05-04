@@ -44,6 +44,7 @@ class ImageViewer(object):
         img = ImageTk.PhotoImage(img)
         path = os.path.dirname(openfile)
         self.obsfreq = os.path.basename(path).replace('survey_', '')
+        print(os.getcwd())
         
         return img, self.width, self.height, filename
 
