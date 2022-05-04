@@ -48,11 +48,15 @@ class ImageViewer(object):
         filename = img.filename
         img.thumbnail((self.width, self.height), Image.ANTIALIAS)
         img = ImageTk.PhotoImage(img)
+
+        path = os.path.dirname(openfile)
+        self.obsfreq = os.path.basename(path).replace('survey_', '')
         
         return img, self.width, self.height, filename
 
     def no(self):
-        g = open('rfi.csv', 'a')
+        filename = 'rfi_'+self.obsfreq+'.csv'
+        g = open(filename, 'a')
         writer = csv.writer(g)
         writer.writerow([self.filename])
         g.close()
@@ -82,7 +86,8 @@ class ImageViewer(object):
 
 
     def yes(self):
-        f = open('hits.csv', 'a')
+        filename = 'hits_'+self.obsfreq+'.csv'
+        f = open(filename, 'a')
         writer = csv.writer(f)
         writer.writerow([self.filename])
         f.close()
